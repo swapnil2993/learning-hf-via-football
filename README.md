@@ -1,1 +1,3 @@
-# learning-hf-via-football
+# Inverted Pyramid NLP: Football Tactical Evolution Engine ⚽📐
+
+A data-driven exploration of football's tactical history powered by Hugging Face transformers. This repository serves as an iterative learning laboratory to master modern NLP pipelines (`translation`, `zero-shot-classification`, `ner`, `question-answering`, `text-generation`) using structural insights, narratives, and concepts inspired by Jonathan Wilson's seminal book, *The Inverted Pyramid*.
