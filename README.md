@@ -94,3 +94,26 @@ We solve this by refactoring our text processing suite to run under a unified ge
 4. **Structural Defense Parsing:** Implement an `isinstance` runtime validation filter to safely handle, inspect, and normalize varying token responses into clean `pandas` rows.
 
 ---
+
+# Assignment 5: The "What If?" Tactical Simulator 🔮⚽
+
+## 📌 Problem Statement
+**"How can we configure a local language model to write creative, logically consistent alternative-history football analysis based on specific book theories, without letting the text degenerate into endless repetitive loops?"**
+
+### The Core Challenges:
+1. **The Creative Control Paradox:** Unlike data retrieval tasks, simulation requires creative license. However, if unconstrained, the model will lose tactical logic and hallucinate historical impossibilities.
+2. **The Repetition Loop Trap:** Small local language models often fall into deterministic patterns when writing longer strings, caught in a loop of repeating identical words or phrases over and over.
+3. **Parameter Ingestion Conflicts:** Passing explicit decoding configurations (like temperature and sampling bounds) directly into chat pipeline layouts causes deprecation warnings and structural conflicts in modern Hugging Face versions.
+
+---
+
+## 🛠️ Technical Solution & Architecture
+We solve this by shifting from deterministic reading to probabilistic generation. We isolate our configuration flags into a standalone dictionary argument wrapper and implement advanced decoding filters to keep creativity grounded.
+
+### Workflow:
+1. **Open-Domain Prompting:** Instead of reading text from a local `.epub` asset, tap into the model’s internal pre-trained vocabulary using conversational role directives.
+2. **Keyword Kwargs Unpacking:** Bundle generation properties (`temperature`, `top_k`, `top_p`) into a clean configuration dictionary (`gen_kwargs`) and unpack them dynamically using Python’s double-asterisk (`**`) operator to maintain clean pipeline separation.
+3. **Stochastic Sampling Execution:** Enable `do_sample=True` and tune the temperature to `0.75` to unlock imaginative linguistic variation.
+4. **Token Repetition Suppression:** Implement a hard mathematical blockade (`no_repeat_ngram_size=3`) to intercept the token probability generation map and zero out repeating phrase paths before they can manifest.
+
+---
