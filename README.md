@@ -72,3 +72,25 @@ We solve this by designing a **Sliding Window Chunking Engine** combined with a 
 4. **Confidence Scanning:** Pass the active chunks to the `deepset/roberta-base-squad2` model. Loop over the text, find the answer snippet with the highest probability score, and print it to the user.
 
 ---
+# Assignment 4: The Chapter Summarizer 📝📐
+
+## 📌 Problem Statement
+**"How can we automatically compress dense, narrative-heavy book chapters into concise tactical bullet points without losing historical precision or crashing local hardware resources?"**
+
+### The Core Challenges:
+1. **The Task Registry Phaseout:** Legacy task keys like `"summarization"` have been officially deprecated and removed from modern Hugging Face versions, making old code architectures obsolete.
+2. **Deterministic Output Locking:** Standard language models are highly creative. When compiling executive intelligence reports, the model must be locked down to prevent it from wandering off into storytelling or hallucination.
+3. **Dynamic Response Structure:** Generation outputs can return text either as a raw string tensor or a complex nested conversational dictionary list depending on packaging updates, causing traditional parsing loops to break.
+
+---
+
+## 🛠️ Technical Solution & Architecture
+We solve this by refactoring our text processing suite to run under a unified generation pipeline, utilizing a lightweight local instruction model combined with explicit parameter constraints.
+
+### Workflow:
+1. **Context Loading:** Ingest the book chapters using our shared modular utilities `extract_book_text` and `chunk_text` to maintain a uniform data pipeline.
+2. **Unified Task Abstraction:** Initialize the `text-generation` task running `HuggingFaceTB/SmolLM2-135M-Instruct` to handle multi-sentence compilation via prompt directives.
+3. **Hyperparameter Hardening:** Apply strict generation parameters (`temperature=0.1`, `do_sample=False`) to remove model randomness and force a purely factual distillation of the context.
+4. **Structural Defense Parsing:** Implement an `isinstance` runtime validation filter to safely handle, inspect, and normalize varying token responses into clean `pandas` rows.
+
+---
