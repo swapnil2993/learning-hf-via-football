@@ -1,0 +1,14 @@
+[project]
+name = "learning-hf-via-football"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "transformers>=4.48.0",
+  "torch>=2.2.0",
+  "pandas>=2.2.0",
+  "sentencepiece>=0.2.0",
+  "beautifulsoup4>=4.14.3",
+  "ebooklib>=0.20",
+]
